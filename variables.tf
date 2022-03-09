@@ -25,14 +25,14 @@ variable "alb_arn" {
   type        = string
 }
 
-variable "oicd_client_id" {
+variable "oidc_client_id" {
   description = "Azure AD client ID"
   default     = "a90b0f2c-4041-4e64-b975-3521a0107cfb"
   type        = string
 }
 
-variable "oicd_secret" {
-  description = "Azure AD secret for the oicd_client_id"
+variable "oidc_secret" {
+  description = "Azure AD secret for the oidc_client_id"
   type        = string
 }
 
