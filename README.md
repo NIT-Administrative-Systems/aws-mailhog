@@ -23,7 +23,7 @@ module "mailhog" {
     ecs_subnet_ids         = ["subnet-002338fccd5226b4d"] # Pvt-AZ1 (it's important to use the PRIVATE subnet!)
     alb_arn                = "arn:aws:elasticloadbalancing:us-east-2:085135368082:loadbalancer/app/as-ado-sbx/10ff301adaf7872d"
     alb_security_group_ids = ["sg-0f9218d020d56b4b1"]
-    oicd_secret            = "seekrit" # From Azure AD
+    oidc_secret            = "seekrit" # From Azure AD
 }
 ```
 

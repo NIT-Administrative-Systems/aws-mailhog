@@ -54,8 +54,8 @@ resource "aws_alb_listener_rule" "to_ecs" {
     type = "authenticate-oidc"
 
     authenticate_oidc {
-      client_id              = var.oicd_client_id
-      client_secret          = var.oicd_secret
+      client_id              = var.oidc_client_id
+      client_secret          = var.oidc_secret
       authorization_endpoint = "https://login.microsoftonline.com/7d76d361-8277-4708-a477-64e8366cd1bc/oauth2/v2.0/authorize"
       issuer                 = "https://login.microsoftonline.com/7d76d361-8277-4708-a477-64e8366cd1bc/v2.0"
       token_endpoint         = "https://login.microsoftonline.com/7d76d361-8277-4708-a477-64e8366cd1bc/oauth2/v2.0/token"
