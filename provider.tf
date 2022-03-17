@@ -10,13 +10,3 @@ terraform {
     }
   }
 }
-
-provider "aws" {
-  region = "us-east-2"
-  default_tags {
-    tags = {
-      app_name    = var.app_name
-      environment = var.environment
-    }
-  }
-}
