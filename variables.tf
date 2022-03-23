@@ -9,14 +9,17 @@ variable "region" {
 }
 
 variable "vpc_id" {
-  # data.terraform_remote_state.shared_resources.outputs.vpc_id
   description = "Identifier for the VPC"
   type        = string
 }
 
 variable "ecs_subnet_ids" {
-  # data.terraform_remote_state.shared_resources.outputs.xxxx_subnet_ids
   description = "Subnet ID(s) to deploy ECS to"
+  type        = list(string)
+}
+
+variable "nlb_subnet_ids" {
+  description = "Subnet ID(s) to deploy the NLB for SMTP traffic to"
   type        = list(string)
 }
 
@@ -37,14 +40,13 @@ variable "oidc_secret" {
 }
 
 variable "alb_security_group_ids" {
-  # [data.terraform_remote_state.shared_resources.outputs.lb_security_group_id]
   description = "Security group(s) for your ALB"
   type        = list(string)
 }
 
 variable "smtp_permitted_cidr_blocks" {
   description = "List of IPv4 CIDR blocks permitted to use the SMTP port"
-  default = [
+  default     = [
     "10.0.0.0/8", # NU LAN (all of it)
   ]
   type = list(string)
@@ -90,4 +92,5 @@ locals {
   full_name      = "${var.app_name} - ${var.environment}"
   full_name_slug = replace("${var.app_name} ${var.environment}", " ", "-")
   web_port       = 8025
+  smtp_port      = 1025
 }

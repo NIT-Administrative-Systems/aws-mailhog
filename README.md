@@ -5,16 +5,18 @@ The deployment is not durable. If you redeploy, there will be a brief outage. Ma
 
 You are expected to bring your own VPC, subnets, and ALB. This module will create a listener on the ALB.
 
+An NLB will be created for you to handle the SMTP traffic. Because who has their own ready-to-go NLB, lol?
+
 ## Usage
 Deploying this is fairly simple. This will bind to your ALB on port `8025` for viewing the web interface.
 
-The SMTP port is 1025, exposed on the ECS task's IP. That is not static. Unfortunately the only way to make it static is to deploy an NLB, and who has money to waste on that for a mailhog?
+The SMTP port is 1025, exposed on the NLB's hostname. It is recommended to CNAME that with something friendly.
 
 In your IaC, include:
 
 ```hcl
 module "mailhog" {
-    source                 = "github.com/NIT-Administrative-Systems/aws-mailhog?ref=v1.0.0"
+    source                 = "github.com/NIT-Administrative-Systems/aws-mailhog?ref=v2.0.0"
   
     # These values are for SBX and used for examples, but you'd probably want to use the remote state from the shared resources!
     region                 = "us-east-2"
@@ -32,3 +34,4 @@ The module will expose the following outputs:
 | Output           | Purpose                                                                  |
 |------------------|--------------------------------------------------------------------------|
 | `log_group_name` | Name of the ECS task's log group. Useful for forwarding logs to DataDog. |
+| `nlb_hostname`   | NLB hostname for SMTP traffic.                                           |
