@@ -61,6 +61,12 @@ resource "aws_ecs_service" "ecs_task_serv" {
     container_port   = local.web_port
   }
 
+  load_balancer {
+    target_group_arn = aws_lb_target_group.smtp.arn
+    container_name = local.full_name_slug
+    container_port = local.smtp_port
+  }
+
   network_configuration {
     subnets          = var.ecs_subnet_ids
     security_groups  = [aws_security_group.firewall.id]
