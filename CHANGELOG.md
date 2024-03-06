@@ -7,10 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [v2.0.0] - 2024-03-06
+## [v3.0.0] - 2024-03-06
 ### Changed
 - Switched from Mailhog to Mailpit, as Mailhog is no longer maintained.
 - ECS task now uses ARM64 architecture, which should be cheaper.
+
+## [v2.0.0] - 2022-03-22
+### Changed
+- Added an NLB to terminate SMTP traffic on a known IP.
 
 ## [v1.0.2] - 2022-05-17
 ### Changed
