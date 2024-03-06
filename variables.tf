@@ -78,7 +78,7 @@ variable "container_memory" {
 
 variable "container_image" {
   description = "Mailhog Docker image to use. Can be a Dockerhub ref or a URL w/ tag."
-  default     = "mailhog/mailhog:latest"
+  default     = "axllent/mailpit:latest"
   type        = string
 }
 

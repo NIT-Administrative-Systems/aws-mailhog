@@ -11,6 +11,10 @@ resource "aws_ecs_task_definition" "mailhog" {
   execution_role_arn       = aws_iam_role.mailhog.arn
   task_role_arn            = aws_iam_role.mailhog.arn
 
+  runtime_platform {
+    cpu_architecture = "ARM64"
+  }
+
   container_definitions = <<DEFINITION
 [{
     "cpu": ${var.container_cpu},
