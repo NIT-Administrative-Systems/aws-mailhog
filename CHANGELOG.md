@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v4.0.0] - 2025-07-07
+### Changed
+- Switched to OpenTofu
+
 ## [v3.0.0] - 2024-03-06
 ### Changed
 - Switched from Mailhog to Mailpit, as Mailhog is no longer maintained.
