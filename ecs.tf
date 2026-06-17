@@ -42,7 +42,8 @@ resource "aws_ecs_task_definition" "mailhog" {
     },
     "environment": [
         {"name": "MH_HOSTNAME", "value": "${var.hostname}"},
-        {"name": "MH_STORAGE", "value": "memory"}
+        {"name": "MH_STORAGE", "value": "memory"},
+        {"name": "MP_TAGS_USERNAME", value: "true"}
     ]
 }]
 DEFINITION
